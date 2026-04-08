@@ -34,10 +34,10 @@ jobs:
           target="app/frontend/assets/runtime-config.js"
           if [[ -n "${API_BASE}" ]]; then
             escaped="${API_BASE//\"/\\\"}"
-            cat > "${target}" <<EOF
-window.GISDATAMONITOR_RUNTIME = window.GISDATAMONITOR_RUNTIME || {};
-window.GISDATAMONITOR_RUNTIME.apiBase = "${escaped}";
-EOF
+            printf '%s\n' \
+              'window.GISDATAMONITOR_RUNTIME = window.GISDATAMONITOR_RUNTIME || {};' \
+              "window.GISDATAMONITOR_RUNTIME.apiBase = \"${escaped}\";" \
+              > "${target}"
             echo "Injected GISDATAMONITOR_API_BASE=${API_BASE}"
           else
             echo "GISDATAMONITOR_API_BASE not configured, keep default runtime-config.js"
