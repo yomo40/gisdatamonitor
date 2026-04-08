@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GISDataMonitor - Leaflet 兼容页</title>
+    <link rel="stylesheet" href="./assets/vendor/leaflet/leaflet.css" />
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
+  <body class="leaflet-mode">
+    <div class="leaflet-shell">
+      <header class="leaflet-top">
+        <strong>GISDataMonitor Leaflet 兼容页</strong>
+        <div>
+          <label class="control inline">
+            <span>场景</span>
+            <select id="leafletScene"></select>
+          </label>
+          <button id="leafletRefresh" class="button-primary">刷新</button>
+          <a class="button-secondary" data-nav-target="monitor" href="/monitor">监控页</a>
+          <a class="button-secondary" data-nav-target="index" href="/">返回主工作台</a>
+        </div>
+      </header>
+      <div id="leafletMap" class="leaflet-map"></div>
+      <aside class="leaflet-side panel">
+        <h2>运行状态</h2>
+        <div id="leafletStatus" class="detail-card muted"></div>
+        <h2>最近事件（增强）</h2>
+        <div id="leafletEvents" class="detail-card"></div>
+      </aside>
+    </div>
+    <script src="./assets/runtime-config.js"></script>
+    <script src="./assets/vendor/leaflet/leaflet.js"></script>
+    <script type="module" src="./assets/leaflet.js"></script>
+  </body>
+</html>

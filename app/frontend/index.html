@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GISDataMonitor - 江西能源情报工作台</title>
+    <link href="./assets/vendor/maplibre-gl/maplibre-gl.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar panel">
+        <div class="brand">
+          <span class="brand-dot"></span>
+          <div class="brand-copy">
+            <h1>GISDataMonitor</h1>
+            <p>江西能源安全情报工作台</p>
+          </div>
+        </div>
+        <div class="topbar-tools">
+          <div id="sceneTabs" class="scene-tabs"></div>
+          <label class="control">
+            <span>事件时间窗（固定）</span>
+            <select id="eventHours">
+              <option value="24">24小时</option>
+            </select>
+          </label>
+          <label class="control">
+            <span>事件来源</span>
+            <select id="eventSource">
+              <option value="">全部来源</option>
+              <option value="usgs_earthquake">USGS 地震</option>
+              <option value="nasa_firms">NASA FIRMS 火点</option>
+              <option value="gdelt_events">GDELT 事件</option>
+              <option value="energy_market">能源市场</option>
+              <option value="energy_announcement">行业公告</option>
+              <option value="ais_port_stub">AIS/港口</option>
+            </select>
+          </label>
+          <button id="manualRefresh" class="button-primary">手动刷新</button>
+          <a class="button-secondary" data-nav-target="autoplay" href="/autoplay">全自动演示</a>
+          <a class="button-secondary" data-nav-target="leaflet" href="/leaflet">Leaflet 兼容页</a>
+          <a class="button-secondary" data-nav-target="monitor" href="/monitor">系统监控页</a>
+        </div>
+      </header>
+
+      <section class="status-strip panel">
+        <div><span class="label">当前场景</span><strong id="statusScene">全球视角</strong></div>
+        <div><span class="label">已加载图层</span><strong id="statusLayers">0</strong></div>
+        <div><span class="label">最近同步</span><strong id="statusSync">--</strong></div>
+        <div><span class="label">连接器异常(24h)</span><strong id="statusAnomaly">0</strong></div>
+        <div><span class="label">数据时间</span><strong id="statusTimestamp">--</strong></div>
+      </section>
+
+      <aside class="left-panel panel">
+        <section class="panel-section">
+          <h2>图层与筛选</h2>
+          <label class="control">
+            <span>设施类型</span>
+            <select id="facilityType">
+              <option value="">全部类型</option>
+            </select>
+          </label>
+          <label class="control">
+            <span>风险等级</span>
+            <select id="riskLevel">
+              <option value="">全部等级</option>
+              <option value="critical">严重</option>
+              <option value="high">高</option>
+              <option value="medium">中</option>
+              <option value="low">低</option>
+            </select>
+          </label>
+        </section>
+        <section class="panel-section toggles">
+          <h2>图层显示</h2>
+          <label><input type="checkbox" id="toggleDem" checked /> DEM 地形（江西）</label>
+          <label><input type="checkbox" id="toggleBoundary" checked /> 江西边界</label>
+          <label><input type="checkbox" id="toggleFacilities" checked /> 能源设施（全国）</label>
+          <label><input type="checkbox" id="toggleEvents" checked /> 实时事件</label>
+          <label><input type="checkbox" id="togglePlayback" checked /> 回放高亮</label>
+        </section>
+        <section class="panel-section legend">
+          <h2>风险图例</h2>
+          <p><i class="dot critical"></i> 严重</p>
+          <p><i class="dot high"></i> 高</p>
+          <p><i class="dot medium"></i> 中</p>
+          <p><i class="dot low"></i> 低</p>
+        </section>
+      </aside>
+
+      <main id="map" class="map-host"></main>
+
+      <aside class="right-panel panel">
+        <section class="panel-section">
+          <h2>对象详情</h2>
+          <div id="detailCard" class="detail-card muted">点击地图中的设施或事件查看详细信息。</div>
+        </section>
+        <section class="panel-section">
+          <h2>风险解释</h2>
+          <div id="riskExplainCard" class="detail-card muted">风险解释加载中。</div>
+        </section>
+        <section class="panel-section">
+          <h2>事件简报</h2>
+          <div id="eventBriefCard" class="stacked-cards"></div>
+        </section>
+        <section class="panel-section">
+          <h2>风险快照</h2>
+          <div id="riskSnapshot" class="stacked-cards"></div>
+        </section>
+        <section class="panel-section">
+          <h2>系统健康</h2>
+          <div id="systemHealth" class="detail-card muted"></div>
+        </section>
+      </aside>
+
+      <footer class="timeline-panel panel">
+        <div class="timeline-toolbar">
+          <div class="playback-controls">
+            <button id="playPauseBtn" class="button-primary">播放</button>
+            <button id="stepBackBtn" class="button-secondary">上一步</button>
+            <button id="stepForwardBtn" class="button-secondary">下一步</button>
+            <label class="control inline">
+              <span>播放速度</span>
+              <select id="playbackSpeed">
+                <option value="1">1倍</option>
+                <option value="2">2倍</option>
+                <option value="4">4倍</option>
+              </select>
+            </label>
+            <label class="control inline">
+              <span>回放窗口</span>
+              <select id="playbackWindow">
+                <option value="24h">24小时</option>
+                <option value="7d">7天</option>
+                <option value="30d">30天</option>
+              </select>
+            </label>
+            <label class="control inline">
+              <span>回放步长</span>
+              <select id="playbackStep">
+                <option value="15">15分钟</option>
+                <option value="30" selected>30分钟</option>
+                <option value="60">60分钟</option>
+              </select>
+            </label>
+          </div>
+          <div id="playbackMeta" class="timeline-meta">帧 -- / --</div>
+        </div>
+        <input id="playbackScrubber" class="timeline-scrubber" type="range" min="0" max="0" value="0" />
+        <div id="timelineBars" class="timeline-bars"></div>
+      </footer>
+    </div>
+
+    <script src="./assets/runtime-config.js"></script>
+    <script src="./assets/vendor/maplibre-gl/maplibre-gl.js"></script>
+    <script type="module" src="./assets/main.js"></script>
+  </body>
+</html>

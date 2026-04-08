@@ -1,0 +1,28 @@
+{
+  "version": "0.1.0",
+  "province": "Jiangxi",
+  "layers": [
+    {
+      "id": "boundary",
+      "kind": "static",
+      "format": ["geojson", "mvt"],
+      "endpoint_geojson": "/api/v1/map/layers/boundary.geojson",
+      "endpoint_mvt": "/api/v1/map/tiles/boundary/{z}/{x}/{y}.mvt"
+    },
+    {
+      "id": "facilities",
+      "kind": "static",
+      "format": ["geojson", "mvt"],
+      "endpoint_geojson": "/api/v1/map/layers/facilities.geojson",
+      "endpoint_mvt": "/api/v1/map/tiles/facilities/{z}/{x}/{y}.mvt"
+    },
+    {
+      "id": "events",
+      "kind": "realtime",
+      "format": ["geojson", "mvt"],
+      "endpoint_geojson": "/api/v1/map/layers/events.geojson",
+      "endpoint_mvt": "/api/v1/map/tiles/events/{z}/{x}/{y}.mvt"
+    }
+  ]
+}
+

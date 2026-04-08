@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GISDataMonitor - 同步监控台</title>
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell monitor-shell">
+      <header class="topbar panel">
+        <div class="brand">
+          <span class="brand-dot"></span>
+          <div class="brand-copy">
+            <h1>GISDataMonitor 监控台</h1>
+            <p>同步历史、连接器可用率与事件吞吐监控</p>
+          </div>
+        </div>
+        <div class="topbar-tools">
+          <label class="control inline">
+            <span>统计窗口</span>
+            <select id="monitorHours">
+              <option value="6">6小时</option>
+              <option value="12">12小时</option>
+              <option value="24" selected>24小时</option>
+              <option value="72">72小时</option>
+            </select>
+          </label>
+          <button id="monitorRefresh" class="button-primary">刷新</button>
+          <a data-nav-target="index" href="/" class="button-secondary">返回主工作台</a>
+        </div>
+      </header>
+
+      <section class="status-strip panel">
+        <div><span class="label">最近同步</span><strong id="mLastSync">--</strong></div>
+        <div><span class="label">最近分析</span><strong id="mLastAnalysis">--</strong></div>
+        <div><span class="label">连接器告警(24h)</span><strong id="mAnomaly">--</strong></div>
+        <div><span class="label">同步日志行数</span><strong id="mSyncRows">0</strong></div>
+        <div><span class="label">吞吐数据行数</span><strong id="mThroughputRows">0</strong></div>
+      </section>
+
+      <main class="monitor-grid">
+        <section class="panel">
+          <h2>连接器可用率</h2>
+          <div id="connectorAvailability" class="stacked-cards"></div>
+        </section>
+        <section class="panel">
+          <h2>事件吞吐（按小时）</h2>
+          <div id="throughputBars" class="timeline-bars"></div>
+        </section>
+        <section class="panel">
+          <h2>最近同步任务</h2>
+          <div id="syncJobs" class="detail-card muted"></div>
+        </section>
+        <section class="panel">
+          <h2>最近分析任务</h2>
+          <div id="analysisJobs" class="detail-card muted"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./assets/runtime-config.js"></script>
+    <script type="module" src="./assets/monitor.js"></script>
+  </body>
+</html>

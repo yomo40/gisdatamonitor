@@ -1,0 +1,174 @@
+{
+  "province": "Jiangxi",
+  "source_owner": "ces_ricegis",
+  "service_count": 14,
+  "downloaded_layer_count": 11,
+  "layers": [
+    {
+      "service_title": "China coal power plants_vJan2024_3",
+      "service_url": "https://services.arcgis.com/lqRTrQp2HrfnJt8U/arcgis/rest/services/China_coal_power_plants_vJan2024_3/FeatureServer",
+      "service_item_id": "fd0c75590e5d4be7b4c3b79af4fe21e3",
+      "service_slug": "China_coal_power_plants_vJan2024_3",
+      "layer_id": 0,
+      "layer_name": "China_coal_power_plants_vJan2024_3",
+      "raw_bbox_feature_count": 142,
+      "jiangxi_feature_count": 97,
+      "geometry_types": [
+        "Point"
+      ],
+      "raw_file": "data/raw/baker/jiangxi_bbox/China_coal_power_plants_vJan2024_3__China_coal_power_plants_vJan2024_3.geojson",
+      "processed_file": "data/processed/baker/China_coal_power_plants_vJan2024_3__China_coal_power_plants_vJan2024_3.geojson"
+    },
+    {
+      "service_title": "China EVB factories_Sep2024",
+      "service_url": "https://services.arcgis.com/lqRTrQp2HrfnJt8U/arcgis/rest/services/China_EVB_factories_Sep2024/FeatureServer",
+      "service_item_id": "43b3356b1441471fa969aa6dc32f1f97",
+      "service_slug": "China_EVB_factories_Sep2024",
+      "layer_id": 0,
+      "layer_name": "China_EVB_factories_Sep2024",
+      "raw_bbox_feature_count": 17,
+      "jiangxi_feature_count": 12,
+      "geometry_types": [
+        "Point"
+      ],
+      "raw_file": "data/raw/baker/jiangxi_bbox/China_EVB_factories_Sep2024__China_EVB_factories_Sep2024.geojson",
+      "processed_file": "data/processed/baker/China_EVB_factories_Sep2024__China_EVB_factories_Sep2024.geojson"
+    },
+    {
+      "service_title": "China Gas Power Plants_v2024",
+      "service_url": "https://services.arcgis.com/lqRTrQp2HrfnJt8U/arcgis/rest/services/China_Gas_Power_Plants_EH_v2024/FeatureServer",
+      "service_item_id": "13137a36043345dabb108ff09981072d",
+      "service_slug": "China_Gas_Power_Plants_EH_v2024",
+      "layer_id": 0,
+      "layer_name": "China Gas Power Plants_EH_v2024",
+      "raw_bbox_feature_count": 3,
+      "jiangxi_feature_count": 2,
+      "geometry_types": [
+        "Point"
+      ],
+      "raw_file": "data/raw/baker/jiangxi_bbox/China_Gas_Power_Plants_EH_v2024__China_Gas_Power_Plants_EH_v2024.geojson",
+      "processed_file": "data/processed/baker/China_Gas_Power_Plants_EH_v2024__China_Gas_Power_Plants_EH_v2024.geojson"
+    },
+    {
+      "service_title": "China Nuclear Power Plants_vSep2024",
+      "service_url": "https://services.arcgis.com/lqRTrQp2HrfnJt8U/arcgis/rest/services/China_Nuclear_Power_Plants_vSep2024/FeatureServer",
+      "service_item_id": "1be4be9dfa1546a1b30f5d619e6eef81",
+      "service_slug": "China_Nuclear_Power_Plants_vSep2024",
+      "layer_id": 0,
+      "layer_name": "China_Nuclear_Power_Plants_vSep2024",
+      "raw_bbox_feature_count": 8,
+      "jiangxi_feature_count": 4,
+      "geometry_types": [
+        "Point"
+      ],
+      "raw_file": "data/raw/baker/jiangxi_bbox/China_Nuclear_Power_Plants_vSep2024__China_Nuclear_Power_Plants_vSep2024.geojson",
+      "processed_file": "data/processed/baker/China_Nuclear_Power_Plants_vSep2024__China_Nuclear_Power_Plants_vSep2024.geojson"
+    },
+    {
+      "service_title": "China Solar Power Plants_GEM_202406",
+      "service_url": "https://services.arcgis.com/lqRTrQp2HrfnJt8U/arcgis/rest/services/China_Solar_Power_Plants_GEM_202406/FeatureServer",
+      "service_item_id": "2e9261fbf5fd497c80d58152e909ed72",
+      "service_slug": "China_Solar_Power_Plants_GEM_202406",
+      "layer_id": 0,
+      "layer_name": "China_Solar_Power_Plants_GEM_202406",
+      "raw_bbox_feature_count": 650,
+      "jiangxi_feature_count": 457,
+      "geometry_types": [
+        "Point"
+      ],
+      "raw_file": "data/raw/baker/jiangxi_bbox/China_Solar_Power_Plants_GEM_202406__China_Solar_Power_Plants_GEM_202406.geojson",
+      "processed_file": "data/processed/baker/China_Solar_Power_Plants_GEM_202406__China_Solar_Power_Plants_GEM_202406.geojson"
+    },
+    {
+      "service_title": "China Wind Power Plants_GEM_202406",
+      "service_url": "https://services.arcgis.com/lqRTrQp2HrfnJt8U/arcgis/rest/services/China_Wind_Power_Plants_GEM_202406/FeatureServer",
+      "service_item_id": "2f2a3f8e5a4e4a5b94c3aeeab6121bed",
+      "service_slug": "China_Wind_Power_Plants_GEM_202406",
+      "layer_id": 0,
+      "layer_name": "China_Wind_Power_Plants_GEM_202406",
+      "raw_bbox_feature_count": 264,
+      "jiangxi_feature_count": 178,
+      "geometry_types": [
+        "Point"
+      ],
+      "raw_file": "data/raw/baker/jiangxi_bbox/China_Wind_Power_Plants_GEM_202406__China_Wind_Power_Plants_GEM_202406.geojson",
+      "processed_file": "data/processed/baker/China_Wind_Power_Plants_GEM_202406__China_Wind_Power_Plants_GEM_202406.geojson"
+    },
+    {
+      "service_title": "ChinaCrudePipelines_Mar2023",
+      "service_url": "https://services.arcgis.com/lqRTrQp2HrfnJt8U/arcgis/rest/services/ChinaCrudePipelines_Mar2023/FeatureServer",
+      "service_item_id": "8ac0fc23c6a74402ab825cc3344b0c6d",
+      "service_slug": "ChinaCrudePipelines_Mar2023",
+      "layer_id": 0,
+      "layer_name": "ChinaCrudePipelines_Mar2023_lines",
+      "raw_bbox_feature_count": 3,
+      "jiangxi_feature_count": 1,
+      "geometry_types": [
+        "LineString"
+      ],
+      "raw_file": "data/raw/baker/jiangxi_bbox/ChinaCrudePipelines_Mar2023__ChinaCrudePipelines_Mar2023_lines.geojson",
+      "processed_file": "data/processed/baker/ChinaCrudePipelines_Mar2023__ChinaCrudePipelines_Mar2023_lines.geojson"
+    },
+    {
+      "service_title": "ChinaNaturalGasPipelines_Mar2023",
+      "service_url": "https://services.arcgis.com/lqRTrQp2HrfnJt8U/arcgis/rest/services/ChinaNaturalGasPipelines_Mar2023/FeatureServer",
+      "service_item_id": "8156aed7bf4b4054aa1e07d03a1a0076",
+      "service_slug": "ChinaNaturalGasPipelines_Mar2023",
+      "layer_id": 0,
+      "layer_name": "ChinaNaturalGasPipelines_Mar2023_lines",
+      "raw_bbox_feature_count": 31,
+      "jiangxi_feature_count": 18,
+      "geometry_types": [
+        "LineString",
+        "MultiLineString"
+      ],
+      "raw_file": "data/raw/baker/jiangxi_bbox/ChinaNaturalGasPipelines_Mar2023__ChinaNaturalGasPipelines_Mar2023_lines.geojson",
+      "processed_file": "data/processed/baker/ChinaNaturalGasPipelines_Mar2023__ChinaNaturalGasPipelines_Mar2023_lines.geojson"
+    },
+    {
+      "service_title": "ChinaOilRefineries_Mar2023",
+      "service_url": "https://services.arcgis.com/lqRTrQp2HrfnJt8U/arcgis/rest/services/ChinaOilRefineries_Mar2023/FeatureServer",
+      "service_item_id": "1aaa0ee756134d8ca06d02afb0cde267",
+      "service_slug": "ChinaOilRefineries_Mar2023",
+      "layer_id": 0,
+      "layer_name": "ChinaOilRefineries_Mar2023_points",
+      "raw_bbox_feature_count": 1,
+      "jiangxi_feature_count": 1,
+      "geometry_types": [
+        "Point"
+      ],
+      "raw_file": "data/raw/baker/jiangxi_bbox/ChinaOilRefineries_Mar2023__ChinaOilRefineries_Mar2023_points.geojson",
+      "processed_file": "data/processed/baker/ChinaOilRefineries_Mar2023__ChinaOilRefineries_Mar2023_points.geojson"
+    },
+    {
+      "service_title": "ChinaOilStorageFacilities_Mar2023",
+      "service_url": "https://services.arcgis.com/lqRTrQp2HrfnJt8U/arcgis/rest/services/ChinaOilStorageFacilities_Mar2023/FeatureServer",
+      "service_item_id": "28e923da3ece40d3a049dc467cdb30b4",
+      "service_slug": "ChinaOilStorageFacilities_Mar2023",
+      "layer_id": 0,
+      "layer_name": "ChinaOilStorageFacilities_Mar2023_points",
+      "raw_bbox_feature_count": 14,
+      "jiangxi_feature_count": 11,
+      "geometry_types": [
+        "Point"
+      ],
+      "raw_file": "data/raw/baker/jiangxi_bbox/ChinaOilStorageFacilities_Mar2023__ChinaOilStorageFacilities_Mar2023_points.geojson",
+      "processed_file": "data/processed/baker/ChinaOilStorageFacilities_Mar2023__ChinaOilStorageFacilities_Mar2023_points.geojson"
+    },
+    {
+      "service_title": "ChinaRefinedProductPipelines_Mar2023",
+      "service_url": "https://services.arcgis.com/lqRTrQp2HrfnJt8U/arcgis/rest/services/ChinaRefinedProductPipelines_Mar2023/FeatureServer",
+      "service_item_id": "3b40ec9cd19a4292b0636c5bb9a3df8e",
+      "service_slug": "ChinaRefinedProductPipelines_Mar2023",
+      "layer_id": 0,
+      "layer_name": "ChinaRefinedProductPipelines_Mar2023_lines",
+      "raw_bbox_feature_count": 5,
+      "jiangxi_feature_count": 3,
+      "geometry_types": [
+        "LineString"
+      ],
+      "raw_file": "data/raw/baker/jiangxi_bbox/ChinaRefinedProductPipelines_Mar2023__ChinaRefinedProductPipelines_Mar2023_lines.geojson",
+      "processed_file": "data/processed/baker/ChinaRefinedProductPipelines_Mar2023__ChinaRefinedProductPipelines_Mar2023_lines.geojson"
+    }
+  ]
+}

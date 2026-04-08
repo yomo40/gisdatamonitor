@@ -1,0 +1,63 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - app/frontend/**
+      - .github/workflows/pages.yml
+      - README.md
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Inject runtime API base (optional)
+        shell: bash
+        env:
+          API_BASE: ${{ vars.GISDATAMONITOR_API_BASE }}
+        run: |
+          target="app/frontend/assets/runtime-config.js"
+          if [[ -n "${API_BASE}" ]]; then
+            escaped="${API_BASE//\"/\\\"}"
+            cat > "${target}" <<EOF
+window.GISDATAMONITOR_RUNTIME = window.GISDATAMONITOR_RUNTIME || {};
+window.GISDATAMONITOR_RUNTIME.apiBase = "${escaped}";
+EOF
+            echo "Injected GISDATAMONITOR_API_BASE=${API_BASE}"
+          else
+            echo "GISDATAMONITOR_API_BASE not configured, keep default runtime-config.js"
+          fi
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: app/frontend
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
